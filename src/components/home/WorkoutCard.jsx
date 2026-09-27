@@ -4,7 +4,7 @@ import { Clock3, Flame, Star } from 'lucide-react';
 
 export default function WorkoutCard({ workout }) {
 	return (
-		<div key={workout.id} className="bg-card border rounded-2xl overflow-hidden">
+		<article key={workout.id} className="bg-card border rounded-2xl overflow-hidden">
 			<div className="h-60 overflow-hidden flex items-center">
 				<Image width={600} height={500} src={workout.image} alt={`$Picture of ${workout.name} Workout`}></Image>
 			</div>
@@ -35,6 +35,6 @@ export default function WorkoutCard({ workout }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</article>
 	);
 }
