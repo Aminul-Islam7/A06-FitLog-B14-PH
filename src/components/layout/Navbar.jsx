@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
 
 export default function Navbar({ planCount = 0, savedCount = 0 }) {
 	const pathname = usePathname();
@@ -22,7 +21,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 	const activeClass = 'text-primary bg-primary/10';
 
 	return (
-		<nav className="sticky top-0 z-50 w-full border-b backdrop-blur-md p-6">
+		<nav className="sticky top-0 z-50 w-full border-b backdrop-blur-lg bg-background/60 p-6">
 			<div className="container mx-auto flex items-center justify-between">
 				{/* Brand Logo */}
 				<Link href="/" className="flex items-center gap-2">
@@ -58,13 +57,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 					</Link>
 
 					<Sheet open={isOpen} onOpenChange={setIsOpen}>
-						<SheetTrigger
-							render={
-								<Button variant="ghost" className="text-foreground hover:bg-white/5 h-9 w-9">
-									<Menu />
-								</Button>
-							}
-						></SheetTrigger>
+						<SheetTrigger render={<Menu size={24} />}></SheetTrigger>
 
 						{/* Mobile Sidebar */}
 						<SheetContent side="right" className="bg-card p-6 flex flex-col justify-between">
