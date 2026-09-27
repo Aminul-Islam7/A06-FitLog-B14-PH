@@ -46,7 +46,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 					</Link>
 					<Link href="/my-plan" className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors inline-flex items-center">
 						Saved
-						<span className="ml-2 h-5 min-w-5 px-1 rounded-full border text-neutral-300 text-[11px] inline-flex items-center justify-center font-bold">{savedCount}</span>
+						<span className="ml-2 h-5 min-w-5 px-1 rounded-full border border-neutral-700 text-neutral-300 text-[11px] inline-flex items-center justify-center font-bold">{savedCount}</span>
 					</Link>
 				</div>
 
@@ -93,7 +93,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 
 								<Link href="/my-plan" onClick={() => setIsOpen(false)} className="flex items-center justify-between p-3 rounded-lg bg-background text-md font-medium text-muted-foreground hover:text-foreground transition-colors">
 									<span>Saved</span>
-									<span className="h-6 min-w-6 p-1.5 rounded-full border text-neutral-300 text-[11px] inline-flex items-center justify-center font-bold">{savedCount}</span>
+									<span className="h-6 min-w-6 p-1.5 rounded-full border border-neutral-700 text-neutral-300 text-[11px] inline-flex items-center justify-center font-bold">{savedCount}</span>
 								</Link>
 							</div>
 						</SheetContent>
