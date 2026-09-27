@@ -7,28 +7,26 @@
 :root {
 	color-scheme: dark;
 
-	/* FitLog Canvas: Deep gym black/charcoal */
-	--background: oklch(0.12 0.01 260); /* #0c0e12 */
-	--foreground: oklch(0.98 0 0); /* Pure crisp white */
+	/* Base Backgrounds & Surfaces */
+	--background: oklch(0.12 0.01 260);
+	--foreground: oklch(0.98 0 0);
 
-	/* FitLog Cards & Containers */
-	--card: oklch(0.16 0.012 260); /* #13161d elevated card surface */
+	--card: oklch(0.16 0.012 260);
 	--card-foreground: oklch(0.98 0 0);
 
 	--popover: oklch(0.16 0.012 260);
 	--popover-foreground: oklch(0.98 0 0);
 
-	/* FitLog Signature Accent: Neon Lime (#ccff00) */
-	--primary: oklch(0.93 0.25 128.5); /* High-energy electric lime */
-	--primary-foreground: oklch(0.05 0 0); /* Pure black for high contrast */
+	/* Primary Semantic Accent: #CCFF00 Neon Lime */
+	--primary: oklch(0.93 0.25 128.5);
+	--primary-foreground: oklch(0.05 0 0);
 
-	/* Secondary / Ghost Surface (View Details button, outlines) */
+	/* Secondary & Muted Elements */
 	--secondary: oklch(0.2 0.01 260);
 	--secondary-foreground: oklch(0.98 0 0);
 
-	/* Muted Text & Borders */
 	--muted: oklch(0.22 0.01 260);
-	--muted-foreground: oklch(0.68 0.01 260); /* Soft cool gray for subtitles/equipment */
+	--muted-foreground: oklch(0.68 0.01 260);
 
 	--accent: oklch(0.22 0.01 260);
 	--accent-foreground: oklch(0.98 0 0);
@@ -36,8 +34,7 @@
 	--destructive: oklch(0.63 0.24 28);
 	--destructive-foreground: oklch(0.98 0 0);
 
-	/* Subtle 10% translucent borders */
-	--border: oklch(1 0 0 / 10%);
+	--border: oklch(1 0 0 / 15%);
 	--input: oklch(1 0 0 / 15%);
 	--ring: oklch(0.93 0.25 128.5);
 
@@ -45,6 +42,7 @@
 }
 
 @theme inline {
+	/* Semantic Shadcn Bindings */
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-card: var(--card);
@@ -64,10 +62,27 @@
 	--color-input: var(--input);
 	--color-ring: var(--ring);
 
-	/* Font Families */
+	/* 
+    Primary 50–950 Palette based on #CCFF00 (Hue 128.5)
+    Enables bg-primary-500, text-primary-300, border-primary-800, etc.
+  */
+	--color-primary-50: oklch(0.98 0.04 128.5);
+	--color-primary-100: oklch(0.96 0.08 128.5);
+	--color-primary-200: oklch(0.94 0.16 128.5);
+	--color-primary-300: oklch(0.93 0.25 128.5); /* Base #CCFF00*/
+	--color-primary-400: oklch(0.86 0.24 128.5);
+	--color-primary-500: oklch(0.78 0.23 128.5);
+	--color-primary-600: oklch(0.66 0.2 128.5);
+	--color-primary-700: oklch(0.52 0.16 128.5);
+	--color-primary-800: oklch(0.38 0.12 128.5);
+	--color-primary-900: oklch(0.26 0.08 128.5);
+	--color-primary-950: oklch(0.16 0.05 128.5);
+
+	/* Typography */
 	--font-sans: var(--font-sans);
 	--font-display: var(--font-oswald);
 
+	/* Border Radii */
 	--radius-sm: calc(var(--radius) - 2px);
 	--radius-md: var(--radius);
 	--radius-lg: calc(var(--radius) + 2px);
@@ -82,3 +97,4 @@
 		@apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
 	}
 }
+
