@@ -2,6 +2,7 @@ import { Inter, Oswald } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
 			<body className="min-h-full flex flex-col">
 				<Navbar></Navbar>
 				{children}
-				{/* <Footer></Footer> */}
+				<Footer></Footer>
 				<Toaster richColors position="bottom-right" theme="dark" />
 			</body>
 		</html>

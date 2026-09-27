@@ -22,7 +22,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 	const activeClass = 'text-primary bg-primary/10';
 
 	return (
-		<nav className="sticky top-0 z-50 w-full border-b backdrop-blur-md px-4 py-3.5 sm:px-6">
+		<nav className="sticky top-0 z-50 w-full border-b backdrop-blur-md p-6">
 			<div className="container mx-auto flex items-center justify-between">
 				{/* Brand Logo */}
 				<Link href="/" className="flex items-center gap-2">
