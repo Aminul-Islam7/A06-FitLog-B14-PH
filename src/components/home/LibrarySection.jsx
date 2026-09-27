@@ -1,5 +1,6 @@
 import WorkoutCard from './WorkoutCard';
 import { TriangleAlert } from 'lucide-react';
+import Link from 'next/link';
 
 async function getWorkouts() {
 	try {
@@ -34,8 +35,10 @@ export default async function LibrarySection() {
 					</div>
 				) : (
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-						{workouts.map((workout, index) => (
-							<WorkoutCard workout={workout} key={index}></WorkoutCard>
+						{workouts.map(workout => (
+							<Link key={workout.id} href={`/workouts/${workout.id}`}>
+								<WorkoutCard workout={workout}></WorkoutCard>
+							</Link>
 						))}
 					</div>
 				)}
