@@ -21,7 +21,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 	const activeClass = 'text-primary bg-primary/10';
 
 	return (
-		<nav className="sticky top-0 z-50 w-full border-b backdrop-blur-lg bg-background/60 p-6">
+		<nav className="sticky top-0 z-50 w-full border-b backdrop-blur-lg bg-background/90 shadow-lg p-6">
 			<div className="container mx-auto flex items-center justify-between">
 				{/* Brand Logo */}
 				<Link href="/" className="flex items-center gap-2">
@@ -57,7 +57,13 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 					</Link>
 
 					<Sheet open={isOpen} onOpenChange={setIsOpen}>
-						<SheetTrigger render={<Menu size={24} />}></SheetTrigger>
+						<SheetTrigger
+							render={
+								<button>
+									<Menu size={24} />
+								</button>
+							}
+						></SheetTrigger>
 
 						{/* Mobile Sidebar */}
 						<SheetContent side="right" className="bg-card p-6 flex flex-col justify-between">
