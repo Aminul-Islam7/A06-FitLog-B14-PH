@@ -29,10 +29,11 @@ export default async function LibrarySection() {
 				<h2 className="text-xl lg:text-3xl font-display font-bold uppercase text-center sm:text-left mb-1">The Library</h2>
 				<p className="text-xs lg:text-base text-muted-foreground text-center sm:text-left">Twelve lifts covering every major muscle group.</p>
 				{!workouts ? (
-					<div className="p-6 text-center flex flex-col gap-4 justify-center items-center text-muted-foreground">
-						<TriangleAlert size={100} />
-						<p>Failed to load workouts. Please try again later.</p>
-					</div>
+					<article className="bg-neutral-950 mt-10 border-3 border-dashed rounded-xl h-100 p-6 text-center flex flex-col gap-2 justify-center items-center">
+						<TriangleAlert size={80} />
+						<p className="font-bold font-display text-xl uppercase mt-2">Sorry</p>
+						<p className="text-muted-foreground text-xs">Failed to load workouts. Please try again later.</p>
+					</article>
 				) : (
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
 						{workouts.map(workout => (
