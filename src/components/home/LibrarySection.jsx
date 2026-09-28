@@ -2,7 +2,7 @@ import WorkoutCard from './WorkoutCard';
 import { TriangleAlert } from 'lucide-react';
 import Link from 'next/link';
 
-async function getWorkouts() {
+export async function getWorkouts() {
 	try {
 		const res = await fetch('https://api.abcz.workers.dev/api/fitlog', {
 			next: { revalidate: 3600 },
