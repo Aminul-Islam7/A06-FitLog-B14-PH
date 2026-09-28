@@ -1,4 +1,4 @@
-import WorkoutCard from './WorkoutCard';
+import WorkoutCard from './workout-card';
 import { TriangleAlert } from 'lucide-react';
 import Link from 'next/link';
 

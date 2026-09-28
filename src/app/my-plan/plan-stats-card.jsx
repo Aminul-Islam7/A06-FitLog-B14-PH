@@ -1,7 +1,7 @@
 'use client';
 
 import { SavedDataContext } from '@/context/saved-data-provider';
-import { use, useContext } from 'react';
+import { useContext } from 'react';
 
 export default function PlanStatsCard({ workouts }) {
 	const { plannedWorkouts } = useContext(SavedDataContext);
@@ -14,15 +14,15 @@ export default function PlanStatsCard({ workouts }) {
 		<article className="bg-card border grid grid-cols-3 py-5 sm:py-8 rounded-xl">
 			<div className="pl-4 sm:pl-8 flex flex-col gap-2">
 				<span className="text-xs text-muted-foreground">Exercises</span>
-				<span className="text-3xl sm:text-4xl font-display font-bold text-primary">{plannedWorkouts.length}</span>
+				<span className="text-2xl sm:text-4xl font-display font-bold text-primary">{plannedWorkouts.length}</span>
 			</div>
 			<div className="pl-4 sm:pl-8 flex flex-col gap-2 border-l">
 				<span className="text-xs text-muted-foreground">Minutes</span>
-				<span className="text-3xl sm:text-4xl font-display font-bold">{minutes}</span>
+				<span className="text-2xl sm:text-4xl font-display font-bold">{minutes}</span>
 			</div>
 			<div className="pl-4 sm:pl-8 flex flex-col gap-2 border-l">
 				<span className="text-xs text-muted-foreground">Calories</span>
-				<span className="text-3xl sm:text-4xl font-display font-bold">{caloriesBurned}</span>
+				<span className="text-2xl sm:text-4xl font-display font-bold">{caloriesBurned}</span>
 			</div>
 		</article>
 	);

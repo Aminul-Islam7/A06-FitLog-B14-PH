@@ -1,12 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Clock3, Flame, Star } from 'lucide-react';
 
 export default function WorkoutCard({ workout }) {
 	return (
 		<article key={workout.id} className="bg-card hover:bg-muted transition-all hover:scale-97 border rounded-2xl overflow-hidden">
 			<div className="h-60 overflow-hidden flex items-center">
-				<Image width={600} height={500} src={workout.image} alt={`$Picture of ${workout.name} Workout`}></Image>
+				<Image width={600} height={500} src={workout.image} alt={`Picture of ${workout.name} Workout`}></Image>
 			</div>
 			<div className="p-6">
 				<div className="space-y-3">

@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Button } from './ui/button';
 import { SavedDataContext } from '@/context/saved-data-provider';
 import { toast } from 'sonner';
 
-function ActionButton({ className, variant, action, workoutId, children }) {
+export default function ActionButton({ className, variant, action, workoutId, children, size }) {
 	const { plannedWorkouts, setPlannedWorkouts, savedWorkouts, setSavedWorkouts, doneWorkouts, setDoneWorkouts } = useContext(SavedDataContext);
 
 	function handleAction() {
@@ -46,10 +46,8 @@ function ActionButton({ className, variant, action, workoutId, children }) {
 	}
 
 	return (
-		<Button onClick={handleAction} className={className} variant={variant} size="lg">
+		<Button onClick={handleAction} className={className} variant={variant} size={size}>
 			{children}
 		</Button>
 	);
 }
-
-export default ActionButton;
