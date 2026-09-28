@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { SavedDataContext } from '@/context/saved-data-provider';
 
-export default function Navbar({ planCount = 0, savedCount = 0 }) {
+export default function Navbar() {
 	const pathname = usePathname();
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -19,6 +20,11 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 	];
 
 	const activeClass = 'text-primary bg-primary/10';
+
+	const { plannedWorkouts, savedWorkouts } = useContext(SavedDataContext);
+
+	const plannedCount = plannedWorkouts.length;
+	const savedCount = savedWorkouts.length;
 
 	return (
 		<nav className="sticky top-0 z-50 w-full border-b backdrop-blur-lg bg-background/90 shadow-lg p-6">
@@ -42,7 +48,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 				<div className="hidden md:flex items-center gap-4">
 					<Link href="/my-plan" className="text-xs font-semibold text-neutral-300 hover:text-foreground transition-colors inline-flex items-center">
 						Plan
-						<span className="ml-2 h-5 min-w-5 px-1 rounded-full bg-primary text-primary-foreground text-[11px] inline-flex items-center justify-center font-bold">{planCount}</span>
+						<span className="ml-2 h-5 min-w-5 px-1 rounded-full bg-primary text-primary-foreground text-[11px] inline-flex items-center justify-center font-bold">{plannedCount}</span>
 					</Link>
 					<Link href="/my-plan" className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors inline-flex items-center">
 						Saved
@@ -53,7 +59,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 				{/* Mobile Navigation */}
 				<div className="flex md:hidden items-center gap-2">
 					<Link href="/my-plan" className="flex items-center gap-1.5 text-xs font-semibold text-neutral-300 mr-1">
-						<span className="h-5 min-w-5 px-1 rounded-full bg-primary text-primary-foreground text-[11px] inline-flex items-center justify-center font-bold">{planCount}</span>
+						<span className="h-5 min-w-5 px-1 rounded-full bg-primary text-primary-foreground text-[11px] inline-flex items-center justify-center font-bold">{plannedCount}</span>
 					</Link>
 
 					<Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -88,7 +94,7 @@ export default function Navbar({ planCount = 0, savedCount = 0 }) {
 							<div className="pt-4 flex flex-col gap-2">
 								<Link href="/my-plan" onClick={() => setIsOpen(false)} className="flex items-center justify-between p-3 rounded-lg bg-background text-md font-medium text-muted-foreground hover:text-foreground transition-colors">
 									<span>Plan</span>
-									<span className="h-6 min-w-6 p-1.5 rounded-full bg-primary text-primary-foreground text-[11px] inline-flex items-center justify-center font-bold">{planCount}</span>
+									<span className="h-6 min-w-6 p-1.5 rounded-full bg-primary text-primary-foreground text-[11px] inline-flex items-center justify-center font-bold">{plannedCount}</span>
 								</Link>
 
 								<Link href="/my-plan" onClick={() => setIsOpen(false)} className="flex items-center justify-between p-3 rounded-lg bg-background text-md font-medium text-muted-foreground hover:text-foreground transition-colors">

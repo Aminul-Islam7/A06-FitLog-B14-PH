@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { CalendarPlus2, Bookmark } from 'lucide-react';
+import ActionButton from '@/components/action-button';
 
 export async function generateStaticParams() {
 	try {
@@ -99,14 +99,14 @@ export default async function WorkoutDetailPage({ params }) {
 						))}
 					</ol>
 					<div className="flex gap-3">
-						<Button size="lg" className="font-semibold text-sm">
+						<ActionButton action="plan" workoutId={workout.id} size="lg" className="font-semibold text-sm">
 							<CalendarPlus2 className="mr-1" />
 							Add to today&apos;s plan
-						</Button>
-						<Button variant="outline" size="lg" className="font-semibold text-sm">
+						</ActionButton>
+						<ActionButton action="save" workoutId={workout.id} variant="outline" size="lg" className="font-semibold text-sm">
 							<Bookmark className="mr-1" />
 							Save for later
-						</Button>
+						</ActionButton>
 					</div>
 				</div>
 			</div>

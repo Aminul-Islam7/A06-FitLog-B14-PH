@@ -43,8 +43,7 @@ const Toaster = ({
           toast: "cn-toast",
         },
       }}
-      {...props}
-    />
+      {...props} />
   );
 }
 
