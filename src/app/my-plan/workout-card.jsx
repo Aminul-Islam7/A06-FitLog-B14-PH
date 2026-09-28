@@ -1,8 +1,7 @@
 import ActionButton from '@/components/action-button';
 import { Clock3, Flame, Star, X } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import ActionButtons from './action-buttons';
 
 export default function WorkoutCard({ workout, type }) {
 	return (
@@ -28,21 +27,7 @@ export default function WorkoutCard({ workout, type }) {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col sm:flex-row items-center gap-2 justify-self-center sm:justify-self-end">
-				<Link href={`/workouts/${workout.id}`}>
-					<Button variant="outline" className="text-xs">
-						View Details
-					</Button>
-				</Link>
-				{type === 'plan' && (
-					<ActionButton action="done" workoutId={workout.id} className="text-xs font-semibold">
-						Mark as Done
-					</ActionButton>
-				)}
-				<ActionButton action={type} workoutId={workout.id} variant="ghost" size="icon">
-					<X size={60} className="text-muted-foreground" />
-				</ActionButton>
-			</div>
+			<ActionButtons workout={workout} type={type}></ActionButtons>
 		</article>
 	);
 }

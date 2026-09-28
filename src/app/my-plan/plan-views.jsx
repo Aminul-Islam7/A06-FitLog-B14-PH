@@ -10,11 +10,13 @@ export default function PlanViews({ workouts }) {
 	const { plannedWorkouts, savedWorkouts } = useContext(SavedDataContext);
 
 	return (
-		<section className="mt-2">
+		<section className="mt-2 ">
 			<TabsContent value="plan" className="space-y-4">
 				{plannedWorkouts.length ? plannedWorkouts.map(workout => <WorkoutCard key={workout.id} type="plan" workout={workouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
 			</TabsContent>
-			<TabsContent value="saved">{savedWorkouts.length ? savedWorkouts.map(workout => <WorkoutCard key={workout.id} type="save" workout={workouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}</TabsContent>
+			<TabsContent value="saved" className="space-y-4">
+				{savedWorkouts.length ? savedWorkouts.map(workout => <WorkoutCard key={workout.id} type="save" workout={workouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
+			</TabsContent>
 		</section>
 	);
 }

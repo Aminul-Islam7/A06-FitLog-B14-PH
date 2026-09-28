@@ -11,7 +11,7 @@ export default function ActionButton({ className, variant, action, workoutId, ch
 	function handleAction() {
 		switch (action) {
 			case 'plan':
-				if (!plannedWorkouts.find(workout => workout === workoutId)) {
+				if (!plannedWorkouts.includes(workoutId)) {
 					setPlannedWorkouts([...plannedWorkouts, workoutId]);
 					toast.success('Workout added to your plan.');
 				} else {
@@ -22,7 +22,7 @@ export default function ActionButton({ className, variant, action, workoutId, ch
 				break;
 
 			case 'save':
-				if (!savedWorkouts.find(workout => workout === workoutId)) {
+				if (!savedWorkouts.includes(workoutId)) {
 					setSavedWorkouts([...savedWorkouts, workoutId]);
 					toast.success('Workout saved for later.');
 				} else {
@@ -33,7 +33,7 @@ export default function ActionButton({ className, variant, action, workoutId, ch
 				break;
 
 			case 'done':
-				if (!savedWorkouts.find(workout => workout === workoutId)) {
+				if (!doneWorkouts.includes(workoutId)) {
 					setDoneWorkouts([...doneWorkouts, workoutId]);
 					toast.success('Well done!');
 				} else {
