@@ -1,7 +1,9 @@
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import PlanStatsCard from './plan-stats-card';
 import PlanViews from './plan-views';
+import SortMenu from './sort-menu';
 import { getWorkouts } from '@/components/home/library-section';
+import SortProvider from '@/context/sort-provider';
 
 export default async function MyPlanPage({ exerciseCount, exerciseMinutes, caloriesBurned }) {
 	const workouts = await getWorkouts();
@@ -14,14 +16,18 @@ export default async function MyPlanPage({ exerciseCount, exerciseMinutes, calor
 					<p className="text-sm lg:text-base text-muted-foreground">Cap of five lifts for today. Finish them, then load more.</p>
 				</header>
 				<PlanStatsCard workouts={workouts}></PlanStatsCard>
-
-				<Tabs defaultValue="plan">
-					<TabsList>
-						<TabsTrigger value="plan">Today&apos;s Plan</TabsTrigger>
-						<TabsTrigger value="saved">Saved</TabsTrigger>
-					</TabsList>
-					<PlanViews workouts={workouts}></PlanViews>
-				</Tabs>
+				<SortProvider>
+					<Tabs defaultValue="plan">
+						<div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+							<TabsList>
+								<TabsTrigger value="plan">Today&apos;s Plan</TabsTrigger>
+								<TabsTrigger value="saved">Saved</TabsTrigger>
+							</TabsList>
+							<SortMenu></SortMenu>
+						</div>
+						<PlanViews workouts={workouts}></PlanViews>
+					</Tabs>
+				</SortProvider>
 			</div>
 		</section>
 	);

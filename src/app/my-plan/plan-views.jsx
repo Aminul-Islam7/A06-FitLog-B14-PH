@@ -3,20 +3,35 @@
 import { TabsContent } from '@/components/ui/tabs';
 import NothingCard from './nothing-card';
 import { SavedDataContext } from '@/context/saved-data-provider';
+import { SortContext } from '@/context/sort-provider';
 import { useContext } from 'react';
 import WorkoutCard from './workout-card';
 
 export default function PlanViews({ workouts }) {
 	const { plannedWorkouts, savedWorkouts } = useContext(SavedDataContext);
+	const { sortType } = useContext(SortContext);
+
+	let type;
+	if (sortType === 'Duration') type = 'duration';
+	else if (sortType === 'Calories') type = 'caloriesBurned';
+	else if (sortType === 'Rating') type = 'rating';
+
+	const sortedWorkouts = workouts.toSorted((a, b) => b[type] - a[type]);
 
 	return (
 		<section className="mt-2 ">
 			<TabsContent value="plan" className="space-y-4">
+				{plannedWorkouts.length ? plannedWorkouts.map(workout => <WorkoutCard key={workout.id} type="plan" workout={sortedWorkouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
+			</TabsContent>
+			<TabsContent value="saved" className="space-y-4">
+				{savedWorkouts.length ? savedWorkouts.map(workout => <WorkoutCard key={workout.id} type="save" workout={sortedWorkouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
+			</TabsContent>
+			{/* <TabsContent value="plan" className="space-y-4">
 				{plannedWorkouts.length ? plannedWorkouts.map(workout => <WorkoutCard key={workout.id} type="plan" workout={workouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
 			</TabsContent>
 			<TabsContent value="saved" className="space-y-4">
 				{savedWorkouts.length ? savedWorkouts.map(workout => <WorkoutCard key={workout.id} type="save" workout={workouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
-			</TabsContent>
+			</TabsContent> */}
 		</section>
 	);
 }
