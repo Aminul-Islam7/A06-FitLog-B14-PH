@@ -26,6 +26,8 @@ export async function generateStaticParams() {
 }
 async function getWorkout(id) {
 	try {
+		// const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+		// await delay(5000);
 		const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`, {
 			next: { revalidate: 3600 },
 		});
@@ -51,7 +53,7 @@ export default async function WorkoutDetailPage({ params }) {
 	return (
 		<article className="mx-6 py-10">
 			<div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-				<div className="space-y-2">
+				<div className="space-y-4">
 					<Link href="/#library-section" className="text-sm text-muted-foreground hover:text-foreground transition-colors ease-in-out flex items-center">
 						<ArrowLeft className="mr-2" size={20} /> Back to all workouts
 					</Link>
@@ -67,32 +69,32 @@ export default async function WorkoutDetailPage({ params }) {
 							</span>
 						))}
 					</div>
-					<div className="bg-card border rounded-xl w-full font-medium my-8">
-						<div className="flex justify-between items-center text-sm py-4 px-6 border-b">
+					<div className="bg-card border divide-y divide-border rounded-xl w-full font-medium my-8">
+						<div className="flex justify-between items-center text-sm py-4 px-6">
 							<span className="text-muted-foreground font-bold uppercase">Equipment</span>
 							<span>{workout.equipment}</span>
 						</div>
-						<div className="flex justify-between items-center text-sm py-4 px-6 border-b">
+						<div className="flex justify-between items-center text-sm py-4 px-6">
 							<span className="text-muted-foreground font-bold uppercase">Difficulty</span>
 							<span>{workout.difficulty}</span>
 						</div>
-						<div className="flex justify-between items-center text-sm py-4 px-6 border-b">
+						<div className="flex justify-between items-center text-sm py-4 px-6">
 							<span className="text-muted-foreground font-bold uppercase">Sets</span>
 							<span>{workout.sets}</span>
 						</div>
-						<div className="flex justify-between items-center text-sm py-4 px-6 border-b">
+						<div className="flex justify-between items-center text-sm py-4 px-6">
 							<span className="text-muted-foreground font-bold uppercase">Reps</span>
 							<span>{workout.reps}</span>
 						</div>
-						<div className="flex justify-between items-center text-sm py-4 px-6 border-b">
+						<div className="flex justify-between items-center text-sm py-4 px-6">
 							<span className="text-muted-foreground font-bold uppercase">Duration</span>
 							<span>{workout.duration}</span>
 						</div>
-						<div className="flex justify-between items-center text-sm py-4 px-6 border-b">
+						<div className="flex justify-between items-center text-sm py-4 px-6">
 							<span className="text-muted-foreground font-bold uppercase">Calories</span>
 							<span>{workout.caloriesBurned}</span>
 						</div>
-						<div className="flex justify-between items-center text-sm py-4 px-6 border-b">
+						<div className="flex justify-between items-center text-sm py-4 px-6">
 							<span className="text-muted-foreground font-bold uppercase">Rating</span>
 							<span>{workout.rating}</span>
 						</div>

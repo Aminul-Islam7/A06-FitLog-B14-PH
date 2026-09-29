@@ -2,10 +2,12 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import PlanStatsCard from './plan-stats-card';
 import PlanViews from './plan-views';
 import SortMenu from './sort-menu';
-import { getWorkouts } from '@/components/home/library-section';
+import { getWorkouts } from '@/components/home/workout-grid';
 import SortProvider from '@/context/sort-provider';
 
-export default async function MyPlanPage({ exerciseCount, exerciseMinutes, caloriesBurned }) {
+export default async function MyPlanPage() {
+	// const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+	// await delay(5000);
 	const workouts = await getWorkouts();
 
 	return (
@@ -13,7 +15,7 @@ export default async function MyPlanPage({ exerciseCount, exerciseMinutes, calor
 			<div className="container mx-auto space-y-6">
 				<header>
 					<h1 className="text-2xl lg:text-4xl font-display font-bold uppercase">My Plan</h1>
-					<p className="text-sm lg:text-base text-muted-foreground">Cap of five lifts for today. Finish them, then load more.</p>
+					<p className="text-sm lg:text-base text-muted-foreground mt-2">Cap of five lifts for today. Finish them, then load more.</p>
 				</header>
 				<PlanStatsCard workouts={workouts}></PlanStatsCard>
 				<SortProvider>

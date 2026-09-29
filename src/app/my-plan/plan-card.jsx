@@ -1,9 +1,8 @@
-import ActionButton from '@/components/action-button';
 import { Clock3, Flame, Star, X } from 'lucide-react';
 import Image from 'next/image';
 import ActionButtons from './action-buttons';
 
-export default function WorkoutCard({ workout, type }) {
+export default function PlanCard({ workout, type }) {
 	return (
 		<article className="bg-card border p-6 rounded-xl grid grid-cols-1 md:grid-cols-2 items-center gap-6">
 			<div className="flex flex-col sm:flex-row items-center gap-4">
