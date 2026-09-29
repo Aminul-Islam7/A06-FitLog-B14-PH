@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import ActionButtons from './action-buttons';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
 	try {
@@ -48,7 +51,12 @@ export default async function WorkoutDetailPage({ params }) {
 	return (
 		<article className="mx-6 py-10">
 			<div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-				<Image className="rounded-xl" width={800} height={800} src={workout.image} alt={`$Picture of ${workout.name} Workout`}></Image>
+				<div className="space-y-2">
+					<Link href="/#library-section" className="text-sm text-muted-foreground hover:text-foreground transition-colors ease-in-out flex items-center">
+						<ArrowLeft className="mr-2" size={20} /> Back to all workouts
+					</Link>
+					<Image className="rounded-xl" width={800} height={800} src={workout.image} alt={`$Picture of ${workout.name} Workout`}></Image>
+				</div>
 				<div className="space-y-4">
 					<h1 className="text-2xl lg:text-4xl font-display font-bold uppercase">{workout.name}</h1>
 					<p className="text-sm lg:text-base text-muted-foreground">{workout.description}</p>
