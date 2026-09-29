@@ -24,7 +24,7 @@ export default async function LibrarySection() {
 	const workouts = await getWorkouts();
 
 	return (
-		<section className="mx-6">
+		<section id="library-section" className="mx-6 scroll-mt-20">
 			<div className="container mx-auto py-6">
 				<h2 className="text-xl lg:text-3xl font-display font-bold uppercase text-center sm:text-left mb-1">The Library</h2>
 				<p className="text-xs lg:text-base text-muted-foreground text-center sm:text-left">Twelve lifts covering every major muscle group.</p>

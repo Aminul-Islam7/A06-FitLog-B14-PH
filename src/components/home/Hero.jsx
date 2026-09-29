@@ -10,9 +10,11 @@ export default function Hero() {
 					<p className="text-primary uppercase text-[9px] md:text-[10px] lg:text-[11px]">Workout Library</p>
 					<h1 className="text-3xl md:text-4xl lg:text-6xl font-display font-extrabold uppercase">Train With Intent. Log Every Set.</h1>
 					<p className="text-xs md:text-sm lg:text-base text-muted-foreground">FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.</p>
-					<Button size="lg" className="uppercase text-xs font-bold">
-						Browse Workouts
-					</Button>
+					<a href="#library-section">
+						<Button size="lg" className="uppercase text-xs font-bold">
+							Browse Workouts
+						</Button>
+					</a>
 				</div>
 				<Image className="mt-6" src={heroImage} alt="Hero Image"></Image>
 			</div>

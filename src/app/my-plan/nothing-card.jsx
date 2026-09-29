@@ -8,7 +8,7 @@ export default function NothingCard() {
 			<Ghost size={80} />
 			<p className="font-bold font-display text-xl uppercase mt-2">Nothing Here Yet</p>
 			<p className="text-muted-foreground text-xs mb-4">Browse the library and add a lift to get today moving.</p>
-			<Link href="/">
+			<Link href="/#library-section">
 				<Button size="lg" className="text-xs font-semibold">
 					Go to workouts
 				</Button>
