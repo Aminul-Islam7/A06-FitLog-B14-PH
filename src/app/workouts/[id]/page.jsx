@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import ActionButtons from './action-buttons';

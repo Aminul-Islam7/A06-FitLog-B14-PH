@@ -11,9 +11,9 @@ export default function NotFound() {
 				</div>
 
 				<div className="space-y-6">
-					<p className="text-md uppercase tracking-widest font-semibold text-primary">404 Not Found</p>
-					<h1 className="text-4xl sm:text-5xl font-display font-bold uppercase tracking-wide text-foreground">Rep Missed</h1>
-					<p className="text-muted-foreground leading-relaxed">The page or workout you&apos;re looking for doesn&apos;t exist, has been removed, or was never racked in the first place.</p>
+					<p className="text-md uppercase font-semibold text-primary">404 Not Found</p>
+					<h1 className="text-4xl sm:text-5xl font-display font-bold uppercase text-foreground">Rep Missed</h1>
+					<p className="text-muted-foreground">The page or workout you&apos;re looking for doesn&apos;t exist, has been removed, or was never racked in the first place.</p>
 				</div>
 
 				<div className="pt-2">
