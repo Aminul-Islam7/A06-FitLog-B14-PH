@@ -13,7 +13,7 @@ export default function ActionButtons({ workout }) {
 
 	return (
 		<div className="flex flex-col sm:flex-row gap-3">
-			<ActionButton action="plan" workoutId={workout.id} size="lg" className="font-semibold text-sm" variant={isPlanned ? 'secondary' : 'default'}>
+			<ActionButton action="plan" workoutId={workout.id} size="lg" className="font-semibold text-sm" variant={isPlanned ? 'secondary' : 'default'} disabled={plannedWorkouts.length >= 5 && !isPlanned}>
 				{isPlanned ? (
 					<>
 						<CalendarCheck className="mr-1" />

@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { SavedDataContext } from '@/context/saved-data-provider';
 import { toast } from 'sonner';
 
-export default function ActionButton({ className, variant, action, workoutId, children, size }) {
+export default function ActionButton({ className, variant, action, workoutId, children, size, disabled }) {
 	const { plannedWorkouts, setPlannedWorkouts, savedWorkouts, setSavedWorkouts, doneWorkouts, setDoneWorkouts } = useContext(SavedDataContext);
 
 	function handleAction() {
@@ -46,7 +46,7 @@ export default function ActionButton({ className, variant, action, workoutId, ch
 	}
 
 	return (
-		<Button onClick={handleAction} className={className} variant={variant} size={size}>
+		<Button onClick={handleAction} className={className} variant={variant} size={size} disabled={disabled}>
 			{children}
 		</Button>
 	);
