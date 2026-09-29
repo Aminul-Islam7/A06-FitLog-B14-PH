@@ -18,20 +18,17 @@ export default function PlanViews({ workouts }) {
 
 	const sortedWorkouts = workouts.toSorted((a, b) => b[type] - a[type]);
 
+	const sortedPlannedWorkouts = sortedWorkouts.filter(workout => plannedWorkouts.includes(workout.id));
+	const sortedSavedWorkouts = sortedWorkouts.filter(workout => savedWorkouts.includes(workout.id));
+
 	return (
 		<section className="mt-2 ">
 			<TabsContent value="plan" className="space-y-4">
-				{plannedWorkouts.length ? plannedWorkouts.map(workout => <WorkoutCard key={workout.id} type="plan" workout={sortedWorkouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
+				{sortedPlannedWorkouts.length ? sortedPlannedWorkouts.map(workout => <WorkoutCard key={workout.id} type="plan" workout={workout}></WorkoutCard>) : <NothingCard></NothingCard>}
 			</TabsContent>
 			<TabsContent value="saved" className="space-y-4">
-				{savedWorkouts.length ? savedWorkouts.map(workout => <WorkoutCard key={workout.id} type="save" workout={sortedWorkouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
+				{sortedSavedWorkouts.length ? sortedSavedWorkouts.map(workout => <WorkoutCard key={workout.id} type="save" workout={workout}></WorkoutCard>) : <NothingCard></NothingCard>}
 			</TabsContent>
-			{/* <TabsContent value="plan" className="space-y-4">
-				{plannedWorkouts.length ? plannedWorkouts.map(workout => <WorkoutCard key={workout.id} type="plan" workout={workouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
-			</TabsContent>
-			<TabsContent value="saved" className="space-y-4">
-				{savedWorkouts.length ? savedWorkouts.map(workout => <WorkoutCard key={workout.id} type="save" workout={workouts[workout - 1]}></WorkoutCard>) : <NothingCard></NothingCard>}
-			</TabsContent> */}
 		</section>
 	);
 }
